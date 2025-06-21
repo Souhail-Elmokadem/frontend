@@ -18,7 +18,7 @@ const Emails = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get('http://localhost:8000/api/emails');
+      const res = await axios.get('https://scanlink.laprophan.com/api/emails');
       setEmails(res.data);
     } catch (err) {
       setError('Erreur lors du chargement des emails.');
@@ -59,10 +59,10 @@ const Emails = () => {
     setLoading(true);
     try {
       if (!form.id) {
-        await axios.post('http://localhost:8000/api/emails', payload);
+        await axios.post('https://scanlink.laprophan.com/api/emails', payload);
         setMessage('Email ajouté avec succès.');
       } else {
-        await axios.put(`http://localhost:8000/api/emails/${form.id}`, payload);
+        await axios.put(`https://scanlink.laprophan.com/api/emails/${form.id}`, payload);
         setMessage('Email modifié avec succès.');
       }
       resetForm();
@@ -101,7 +101,7 @@ const Emails = () => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cet email ? Cette action est irréversible.')) {
       setLoading(true);
       try {
-        await axios.delete(`http://localhost:8000/api/emails/${id}`);
+        await axios.delete(`https://scanlink.laprophan.com/api/emails/${id}`);
         setMessage('Email supprimé avec succès.');
         await fetchEmails();
       } catch (err) {

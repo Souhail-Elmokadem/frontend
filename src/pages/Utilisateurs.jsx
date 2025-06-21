@@ -20,7 +20,7 @@ const Utilisateurs = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get('http://localhost:8000/api/utilisateurs');
+      const res = await axios.get('https://scanlink.laprophan.com/api/utilisateurs');
       setUtilisateurs(res.data);
     } catch (err) {
       setError('Erreur lors du chargement des utilisateurs.');
@@ -71,10 +71,10 @@ const Utilisateurs = () => {
     setLoading(true);
     try {
       if (!form.id) {
-        await axios.post('http://localhost:8000/api/utilisateurs', payload);
+        await axios.post('https://scanlink.laprophan.com/api/utilisateurs', payload);
         setMessage('Utilisateur ajouté avec succès.');
       } else {
-        await axios.put(`http://localhost:8000/api/utilisateurs/${form.id}`, payload);
+        await axios.put(`https://scanlink.laprophan.com/api/utilisateurs/${form.id}`, payload);
         setMessage('Utilisateur modifié avec succès.');
       }
       resetForm();
@@ -117,7 +117,7 @@ const Utilisateurs = () => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ? Cette action est irréversible.')) {
       setLoading(true);
       try {
-        await axios.delete(`http://localhost:8000/api/utilisateurs/${id}`);
+        await axios.delete(`https://scanlink.laprophan.com/api/utilisateurs/${id}`);
         setMessage('Utilisateur supprimé avec succès.');
         await fetchUtilisateurs();
       } catch (err) {

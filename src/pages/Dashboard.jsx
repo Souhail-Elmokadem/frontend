@@ -30,11 +30,11 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const reglementsResponse = await axios.get('http://localhost:8000/api/reglements');
+      const reglementsResponse = await axios.get('https://scanlink.laprophan.com/api/reglements');
       setReglements(reglementsResponse.data);
       setFiltered(reglementsResponse.data);
 
-      const categoriesResponse = await axios.get('http://localhost:8000/api/categories');
+      const categoriesResponse = await axios.get('https://scanlink.laprophan.com/api/categories');
       const fetchedCategories = categoriesResponse.data;
 
       const existingNames = fetchedCategories.map(cat => cat.nom);
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   const handleManualImport = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/api/webhook/lancer');
+      const response = await axios.post('https://scanlink.laprophan.com/api/webhook/lancer');
       alert(response.data.message || 'Import déclenché avec succès');
       fetchData(); // Recharger les données après l'import
     } catch (error) {

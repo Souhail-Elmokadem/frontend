@@ -14,7 +14,7 @@ const PromptEdit = () => {
   useEffect(() => {
     const fetchPrompt = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/prompt-global`);
+        const res = await axios.get(`https://scanlink.laprophan.com/api/prompt-global`);
         setPrompt(res.data.prompt || '');
       } catch (err) {
         console.error(err);
@@ -29,7 +29,7 @@ const PromptEdit = () => {
     setError(null);
     setMessage(null);
     try {
-      await axios.post(`http://localhost:8000/api/prompt-global`, { prompt });
+      await axios.post(`https://scanlink.laprophan.com/api/prompt-global`, { prompt });
       setMessage("✅ Prompt global enregistré avec succès.");
       setTimeout(() => navigate("/reglements"), 1500);
     } catch (err) {

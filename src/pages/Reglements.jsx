@@ -18,7 +18,7 @@ const Reglements = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get('http://localhost:8000/api/reglements');
+      const res = await axios.get('https://scanlink.laprophan.com/api/reglements');
       setReglements(res.data);
     } catch (err) {
       setError('Erreur lors du chargement des règlements');
@@ -33,7 +33,7 @@ const Reglements = () => {
     setError(null);
     setMessage(null);
     try {
-      await axios.post(`http://localhost:8000/api/rapports/generer/${id}`);
+      await axios.post(`https://scanlink.laprophan.com/api/rapports/generer/${id}`);
       setMessage('✅ Rapport généré avec succès.');
       await fetchReglements();
     } catch (err) {
@@ -48,7 +48,7 @@ const Reglements = () => {
     setLoadingId(reglementId);
     setMessage(null);
     try {
-      await axios.post(`http://localhost:8000/api/reglements/${reglementId}/regenere`);
+      await axios.post(`https://scanlink.laprophan.com/api/reglements/${reglementId}/regenere`);
       setMessage('✅ Rapport régénéré avec succès.');
       await fetchReglements();
     } catch (err) {
@@ -59,11 +59,11 @@ const Reglements = () => {
   };
 
   const openHTML = (uuid) => {
-    window.open(`http://localhost:8000/rapports/html/${uuid}`, '_blank');
+    window.open(`https://scanlink.laprophan.com/rapports/html/${uuid}`, '_blank');
   };
 
   const downloadPDF = (id) => {
-    window.open(`http://localhost:8000/api/rapports/pdf/${id}`, '_blank');
+    window.open(`https://scanlink.laprophan.com/api/rapports/pdf/${id}`, '_blank');
   };
 
   useEffect(() => {

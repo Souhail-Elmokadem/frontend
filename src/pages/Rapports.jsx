@@ -13,7 +13,7 @@ const Rapports = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get('http://localhost:8000/api/rapports');
+      const res = await axios.get('https://scanlink.laprophan.com/api/rapports');
       setRapports(res.data);
     } catch (err) {
       setError('Erreur lors du chargement des rapports');
@@ -27,7 +27,7 @@ const Rapports = () => {
     setLoading(true);
     setError(null);
     try {
-      await axios.post('http://localhost:8000/api/generer-rapport');
+      await axios.post('https://scanlink.laprophan.com/api/generer-rapport');
       setMessage('Rapport généré avec succès');
       await fetchData();
     } catch (err) {
@@ -39,7 +39,7 @@ const Rapports = () => {
   };
 
   const downloadPDF = (id) => {
-    window.open(`http://localhost:8000/api/rapports/pdf/${id}`, '_blank');
+    window.open(`https://scanlink.laprophan.com/api/rapports/pdf/${id}`, '_blank');
   };
 
   useEffect(() => {
