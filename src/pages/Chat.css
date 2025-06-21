@@ -1,0 +1,97 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f7f7f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 75%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #dcf8c6; /* Vert clair pour l'utilisateur */
+  border-bottom-right-radius: 2px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #e9ecef; /* Gris clair pour le bot */
+  border-bottom-left-radius: 2px;
+}
+
+.input-container {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  margin-right: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #4CAF50; /* Vert pour le focus */
+}
+
+.input-container button {
+  padding: 12px 20px;
+  background-color: #4CAF50; /* Vert */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-container button:hover {
+  background-color: #3e8e41; /* Vert plus foncé au survol */
+  transform: translateY(-1px);
+}
+
+.input-container button:active {
+  transform: translateY(0);
+}
+
+/* Animation de chargement */
+.typing-indicator {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  border-bottom-left-radius: 2px;
+  font-style: italic;
+  color: #666;
+}
